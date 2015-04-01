@@ -24,16 +24,14 @@ class Ball:
       return ((self.dx > 0 and self.x + self.radius + self.dx < width) or
          (self.dx < 0 and self.x - self.radius + self.dx >= 0))
 
-
    def can_move_vertical(self, height):
       return ((self.dy > 0 and self.y + self.radius + self.dy < height) or
          (self.dy < 0 and self.y - self.radius + self.dy >= 0))
 
-
    def move_ball(self, width, height, balls):
-      if not can_move_horizontal(self, width):
+      if not self.can_move_horizontal(width):
          self.dx *= -1
-      if not can_move_vertical(self, height):
+      if not self.can_move_vertical(height):
          self.dy *= -1
       self.x += self.dx
       self.y += self.dy
